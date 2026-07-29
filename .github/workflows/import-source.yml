@@ -11,12 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Unpack source archive
+      - name: Reconstruct and unpack source
         run: |
+          cat .source-transfer/part-*.txt | base64 --decode > uofs-transfer.tar.gz
           mkdir -p /tmp/uofs-source
-          tar -xzf uofs-transfer-0d6d940.tar.gz -C /tmp/uofs-source
+          tar -xzf uofs-transfer.tar.gz -C /tmp/uofs-source
           rsync -a --exclude '.git' /tmp/uofs-source/ ./
-          rm -f uofs-transfer-0d6d940.tar.gz
+          rm -rf .source-transfer uofs-transfer.tar.gz
       - name: Commit imported source
         run: |
           git config user.name "University of FlowState Deploy"
