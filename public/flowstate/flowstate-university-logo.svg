@@ -1,0 +1,58 @@
+<svg width="520" height="220" viewBox="0 0 520 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">University of FlowState crest</title>
+  <desc id="desc">Mint and sterling academic crest with University of FlowState wordmark.</desc>
+  <defs>
+    <linearGradient id="mintField" x1="22" y1="18" x2="198" y2="204" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F9FDFC"/>
+      <stop offset="0.5" stop-color="#D9EFE6"/>
+      <stop offset="1" stop-color="#8FC5AD"/>
+    </linearGradient>
+    <linearGradient id="silverRing" x1="10" y1="18" x2="214" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.48" stop-color="#C7CFCD"/>
+      <stop offset="1" stop-color="#7B8583"/>
+    </linearGradient>
+    <filter id="softSealShadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#60716F" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#softSealShadow)">
+    <circle cx="110" cy="110" r="96" fill="#FFFFFF"/>
+    <circle cx="110" cy="110" r="91" stroke="url(#silverRing)" stroke-width="8"/>
+    <circle cx="110" cy="110" r="76" fill="url(#mintField)" stroke="#FFFFFF" stroke-width="5"/>
+    <circle cx="110" cy="110" r="62" stroke="#AEB9B6" stroke-width="2"/>
+
+    <path d="M110 50L157 68V104C157 141 138 168 110 182C82 168 63 141 63 104V68L110 50Z" fill="#FFFFFF" stroke="#60716F" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M110 62L144 75V104C144 132 130 153 110 164C90 153 76 132 76 104V75L110 62Z" fill="#F8FCFB" stroke="#C7CFCD" stroke-width="2" stroke-linejoin="round"/>
+
+    <path d="M84 111C94 105 103 105 110 111C117 105 126 105 136 111V143C126 137 117 137 110 143C103 137 94 137 84 143V111Z" fill="#D9EFE6" stroke="#60716F" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M110 111V143" stroke="#60716F" stroke-width="3" stroke-linecap="round"/>
+    <path d="M95 124C101 122 106 123 110 127" stroke="#60716F" stroke-width="2" stroke-linecap="round"/>
+    <path d="M125 124C119 122 114 123 110 127" stroke="#60716F" stroke-width="2" stroke-linecap="round"/>
+
+    <path d="M82 99C92 86 102 80 110 80C118 80 128 86 138 99" stroke="#8FC5AD" stroke-width="5" stroke-linecap="round"/>
+    <path d="M94 91H126" stroke="#60716F" stroke-width="4" stroke-linecap="round"/>
+    <path d="M110 80V99" stroke="#60716F" stroke-width="4" stroke-linecap="round"/>
+
+    <path d="M45 108C49 82 60 65 78 52" stroke="#7B8583" stroke-width="4" stroke-linecap="round"/>
+    <path d="M175 108C171 82 160 65 142 52" stroke="#7B8583" stroke-width="4" stroke-linecap="round"/>
+    <path d="M59 72C52 72 48 68 47 62C54 62 58 65 59 72Z" fill="#8FC5AD"/>
+    <path d="M161 72C168 72 172 68 173 62C166 62 162 65 161 72Z" fill="#8FC5AD"/>
+    <path d="M51 94C45 94 41 90 40 84C46 84 50 88 51 94Z" fill="#8FC5AD"/>
+    <path d="M169 94C175 94 179 90 180 84C174 84 170 88 169 94Z" fill="#8FC5AD"/>
+
+    <text x="110" y="30" text-anchor="middle" fill="#60716F" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-weight="700" letter-spacing="1.8">UNIVERSITY</text>
+    <text x="110" y="42" text-anchor="middle" fill="#60716F" font-family="Georgia, 'Times New Roman', serif" font-size="8" font-weight="700" letter-spacing="1.4">OF</text>
+    <text x="110" y="202" text-anchor="middle" fill="#60716F" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="700" letter-spacing="2.4">FLOWSTATE</text>
+  </g>
+
+  <g transform="translate(232 55)">
+    <path d="M0 0H236" stroke="#C7CFCD" stroke-width="2"/>
+    <text x="0" y="48" fill="#000000" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" letter-spacing="0">University of</text>
+    <text x="0" y="88" fill="#000000" font-family="Georgia, 'Times New Roman', serif" font-size="39" font-weight="700" letter-spacing="0">FlowState</text>
+    <path d="M4 110H214" stroke="#8FC5AD" stroke-width="7" stroke-linecap="round"/>
+    <path d="M4 124H164" stroke="#C7CFCD" stroke-width="3" stroke-linecap="round"/>
+    <text x="2" y="151" fill="#60716F" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.8">ONLINE CAREER COLLEGE</text>
+  </g>
+</svg>

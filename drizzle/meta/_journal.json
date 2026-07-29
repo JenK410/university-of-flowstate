@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1784892872603,
+      "tag": "0000_persistent-student-accounts",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1784901529270,
+      "tag": "0001_shiny_paladin",
+      "breakpoints": true
+    }
+  ]
+}

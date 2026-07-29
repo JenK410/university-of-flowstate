@@ -1,0 +1,1585 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>University of FlowState</title>
+    <meta
+      name="description"
+      content="University of FlowState, a personalized online learning experience for careers, languages, electives, job training, and creative study."
+    />
+    <meta property="og:title" content="University of FlowState" />
+    <meta property="og:description" content="Career discovery, job training, language study, creative electives, and academic planning." />
+    <meta property="og:image" content="./uoffs-link-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="./uoffs-link-preview.png" />
+    <link rel="icon" href="./flowstate-university-logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="disclaimer-modal" id="disclaimerModal" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+      <div class="disclaimer-card">
+        <p class="eyebrow">Important notice</p>
+        <h2 id="disclaimerTitle">No guaranteed results</h2>
+        <p>
+          University of FlowState is a planning, study, career exploration, and job-training tool. It does not guarantee
+          employment, income, promotions, admissions, certifications, licensing, scholarships, interviews, grades, or
+          any specific personal, academic, legal, financial, medical, or career outcome.
+        </p>
+        <p>
+          Content is educational and informational only. It is not legal, financial, medical, mental health, immigration,
+          tax, or professional licensing advice. You are responsible for checking requirements, laws, employer standards,
+          and school or licensing rules that apply to your situation.
+        </p>
+        <p>
+          By continuing, you understand that your choices, effort, market conditions, eligibility, and outside decisions
+          affect results, and that University of FlowState is not legally responsible for decisions made from this preview or portal
+          to the fullest extent permitted by law.
+        </p>
+        <button id="acceptDisclaimer" type="button">I understand and agree</button>
+      </div>
+    </div>
+
+    <div
+      class="account-delete-modal hidden"
+      id="accountDeleteModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="accountDeleteTitle"
+    >
+      <form class="account-delete-card" id="deleteAccountForm">
+        <p class="eyebrow">Student account</p>
+        <h2 id="accountDeleteTitle">Delete your account?</h2>
+        <p>
+          This permanently removes your sign-in and all saved University of FlowState choices, course progress,
+          advisor conversations, learning preferences, and portfolio planning stored for this account on this device.
+        </p>
+        <p><strong>This action cannot be undone.</strong></p>
+        <div class="password-field">
+          <label for="deleteAccountPassword">Enter your password to confirm</label>
+          <input
+            id="deleteAccountPassword"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+          <label class="password-visibility-option" for="showDeleteAccountPassword">
+            <input
+              id="showDeleteAccountPassword"
+              type="checkbox"
+              aria-controls="deleteAccountPassword"
+            />
+            <span>Show password</span>
+          </label>
+        </div>
+        <p class="account-delete-message" id="deleteAccountMessage" aria-live="polite"></p>
+        <div class="account-delete-actions">
+          <button id="cancelDeleteAccount" type="button">Keep my account</button>
+          <button class="danger-button" type="submit">Permanently delete account</button>
+        </div>
+      </form>
+    </div>
+
+    <div
+      class="flowstate-connect-modal hidden"
+      id="flowstateConnectModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="flowstateConnectTitle"
+    >
+      <div class="flowstate-connect-card">
+        <p class="eyebrow">FlowState ecosystem</p>
+        <h2 id="flowstateConnectTitle">Connect to FlowState</h2>
+        <p>
+          FlowState will receive your student identity, current program selections, and one suggested study block.
+          Your University of FlowState password is never shared.
+        </p>
+        <dl class="flowstate-connect-summary">
+          <div>
+            <dt>Student</dt>
+            <dd id="flowstateConnectName">Student</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd id="flowstateConnectEmail">student@email.com</dd>
+          </div>
+          <div>
+            <dt>Program</dt>
+            <dd id="flowstateConnectProgram">Career Exploration</dd>
+          </div>
+          <div>
+            <dt>Study block</dt>
+            <dd id="flowstateConnectTask">Career exploration study block</dd>
+          </div>
+        </dl>
+        <p class="flowstate-connect-note">
+          FlowState will open securely in a new tab and ask you to confirm before adding the study plan to your signed-in account or guest profile.
+        </p>
+        <p class="flowstate-connect-message" id="flowstateConnectMessage" aria-live="polite"></p>
+        <div class="flowstate-connect-actions">
+          <button id="cancelFlowStateConnect" type="button">Not now</button>
+          <button id="openFlowStateApp" type="button">Connect and review in FlowState</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="preview-shell" id="previewShell">
+      <div class="preview-top">
+        <img src="./flowstate-university-logo.svg" alt="University of FlowState logo" />
+        <div>
+          <strong>University of FlowState</strong>
+          <span class="preview-motto">Knowledge is power.</span>
+          <small>Institute for career discovery, practical excellence, language, and creative study</small>
+        </div>
+      </div>
+
+      <div class="flowstate-family" aria-label="FlowState ecosystem">
+        <span>FlowState ecosystem</span>
+        <strong>FlowState is your life operating system. University of FlowState is the campus where your goals become skills, credentials, and a career portfolio.</strong>
+      </div>
+
+      <div class="preview-hero">
+        <div>
+          <p class="eyebrow">Admissions preview</p>
+          <h1>Begin with purpose. Study with distinction.</h1>
+          <p>
+            Build a focused path through career study, job training, language, or electives. Your portal opens only with the choices you make.
+          </p>
+          <div class="preview-actions">
+            <a href="#previewAdvisor">Try Raini's guidance inquiry</a>
+            <a href="#authPanel">Sign in</a>
+          </div>
+        </div>
+
+        <form class="auth-card" id="authPanel">
+          <p class="eyebrow">Student sign in</p>
+          <h2>Your custom portal</h2>
+          <label>
+            Email
+            <input id="authEmail" type="email" placeholder="student@email.com" autocomplete="email" required />
+          </label>
+          <div class="password-field">
+            <label for="authPassword">Password</label>
+            <input id="authPassword" type="password" placeholder="Create or enter password" autocomplete="current-password" required />
+            <label class="password-visibility-option" for="showAuthPassword">
+              <input id="showAuthPassword" type="checkbox" aria-controls="authPassword" />
+              <span>Show password</span>
+            </label>
+          </div>
+          <small class="auth-storage-note">
+            Accounts securely save your portal, progress, and study choices. For your privacy, only one device can stay signed in at a time; signing in somewhere new signs out the previous device.
+          </small>
+          <label>
+            Display name
+            <input id="authName" type="text" placeholder="Optional for new students" autocomplete="name" />
+          </label>
+          <div class="auth-actions">
+            <button type="submit" data-auth-mode="signin">Sign in</button>
+            <button type="button" id="createAccount">Create account</button>
+          </div>
+          <p id="authMessage">Preview is open. Sign in to save a personal student portal.</p>
+        </form>
+      </div>
+
+      <div class="preview-grid">
+        <article>
+          <span>Student guidance</span>
+          <strong>Raini Smith</strong>
+          <p>Open a guided inquiry and work through patterns in what energizes you, what you value, and what you want to learn.</p>
+        </article>
+        <article>
+          <span>Career or job training</span>
+          <strong>Choose or skip</strong>
+          <p>Pick a career path, start with basic job excellence, or skip until you know more.</p>
+        </article>
+        <article>
+          <span>Custom portal</span>
+          <strong>Saved by student</strong>
+          <p>Each email gets its own assignments, advisor notes, flashcards, and selected training focus.</p>
+        </article>
+      </div>
+
+      <section class="preview-advisor" id="previewAdvisor">
+        <div>
+          <p class="eyebrow">Meet Raini Smith</p>
+          <h2>Start a guidance inquiry</h2>
+          <p>
+            You can answer before signing in. The preview will reflect patterns, then you can sign in
+            to continue inside your custom portal.
+          </p>
+        </div>
+        <form id="previewAdvisorForm" class="preview-advisor-form">
+          <label for="previewAdvisorAnswer">What kind of work makes you feel curious, proud, or useful?</label>
+          <textarea id="previewAdvisorAnswer" rows="4" placeholder="Write anything: helping people, art, sales, games, language, organizing, performing, solving problems..."></textarea>
+          <div>
+            <button type="submit">Submit guidance inquiry</button>
+            <button type="button" id="skipToCareer">Skip and choose a career</button>
+            <button type="button" id="skipToJobs">Skip and choose job training</button>
+          </div>
+        </form>
+        <div class="preview-advisor-result" id="previewAdvisorResult" aria-live="polite">
+          <strong>Raini Smith | Student Guidance</strong>
+          <p>Your first reflection will appear here.</p>
+        </div>
+      </section>
+
+      <section class="preview-about" id="previewAbout">
+        <div class="preview-about-mark">
+          <img src="./flowstate-university-logo.svg" alt="University of FlowState crest" />
+          <span>Office of the Dean</span>
+          <strong>Knowledge is power.</strong>
+        </div>
+        <div>
+          <p class="eyebrow">About University of FlowState</p>
+          <h2>A university built around the whole student</h2>
+          <p>
+            University of FlowState is an independent online learning experience for career discovery,
+            practical job excellence, languages, creative study, personal development, and portfolio-based learning.
+            Students may build a career program, combine several electives, or begin with independent elective study.
+          </p>
+          <dl class="preview-about-facts">
+            <div>
+              <dt>Study choices</dt>
+              <dd>170+ career pathways, 240+ practical job plans, 30+ languages, and 200+ creative, practical, and academic electives</dd>
+            </div>
+            <div>
+              <dt>Learning model</dt>
+              <dd>Career-specific lessons, English-captioned media, projects, practice, reflection, and visible evidence</dd>
+            </div>
+            <div>
+              <dt>Student guidance</dt>
+              <dd>Guided career inquiry with Raini Smith and a learning profile that adjusts study and retention methods</dd>
+            </div>
+          </dl>
+          <blockquote>
+            <p>
+              Education should help you recognize your gifts, practice them with discipline, and build a life that feels
+              like your own. Our work begins with the student, then shapes the program around what they are ready to become.
+            </p>
+            <footer><strong>Aries Greyson</strong><span>Founding Dean, University of FlowState</span></footer>
+          </blockquote>
+        </div>
+      </section>
+    </section>
+
+    <section class="path-intro-shell hidden" id="pathIntroShell" aria-labelledby="pathIntroTitle">
+      <header class="path-intro-header">
+        <div class="path-intro-brand">
+          <img src="./flowstate-university-logo.svg" alt="University of FlowState crest" />
+          <div>
+            <strong>University of FlowState</strong>
+            <span>Knowledge is power.</span>
+          </div>
+        </div>
+        <button
+          class="mobile-account-toggle"
+          type="button"
+          aria-controls="introAccountActions"
+          aria-expanded="false"
+        >
+          Account
+        </button>
+        <div class="account-header-actions" id="introAccountActions">
+          <button class="flowstate-import-trigger" id="introImportToFlowState" type="button">Import to FlowState app</button>
+          <button class="delete-account-trigger" id="introDeleteAccount" type="button">Delete account</button>
+          <button id="introSignOut" type="button">Sign out</button>
+        </div>
+      </header>
+
+      <main class="path-intro-main">
+        <section class="path-intro-welcome">
+          <p class="eyebrow">Choose your entrance</p>
+          <h1 id="pathIntroTitle">How would you like to begin?</h1>
+          <p class="path-intro-lead" id="introStudentName">
+            Choose how you want to begin your University of FlowState experience.
+          </p>
+          <p>
+            Begin with a career, a language, one or more electives, or Raini Smith's guided passion-discovery process.
+            Each is a complete standalone option, and you may combine or change them whenever your goals evolve.
+          </p>
+        </section>
+
+        <section class="path-intro-status" aria-labelledby="introCurrentPath">
+          <div>
+            <p class="eyebrow">Your saved direction</p>
+            <h2 id="introCurrentPath">Career exploration</h2>
+            <p id="introCurrentPathSummary">No academic path has been selected yet.</p>
+          </div>
+          <dl class="path-intro-summary">
+            <div>
+              <dt>Career</dt>
+              <dd id="introCareerStatus">Not selected</dd>
+            </div>
+            <div>
+              <dt>Language</dt>
+              <dd id="introLanguageStatus">Not selected</dd>
+            </div>
+            <div>
+              <dt>Electives</dt>
+              <dd id="introElectiveStatus">Not selected</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="path-intro-choices" aria-labelledby="pathChoiceTitle">
+          <div class="path-intro-section-heading">
+            <p class="eyebrow">Choose your entrance</p>
+            <h2 id="pathChoiceTitle">Start with a career path or discover one with Raini</h2>
+            <p>Begin with any one program, then use More inside your portal to add or change language, electives, job training, or learning support.</p>
+          </div>
+          <div class="path-choice-grid">
+            <button class="path-choice" id="introCareerPath" type="button">
+              <span>01</span>
+              <strong>Career program</strong>
+              <small>Choose a career, activate your focused portal, and add other programs later from More.</small>
+            </button>
+            <button class="path-choice" id="introLanguagePath" type="button">
+              <span>02</span>
+              <strong>Language program</strong>
+              <small>Study a language as a complete independent program for fluency, culture, communication, and personal goals.</small>
+            </button>
+            <button class="path-choice" id="introElectivePath" type="button">
+              <span>03</span>
+              <strong>Elective program</strong>
+              <small>Choose one or several courses from 200+ creative, practical, technical, academic, or life-skills electives.</small>
+            </button>
+            <button class="path-choice path-choice-job" id="introJobPath" type="button">
+              <span>04</span>
+              <strong>Job training program</strong>
+              <small>Build a practical job-training portal without enrolling in a career, language, or elective program.</small>
+            </button>
+            <button class="path-choice" id="introPassionPath" type="button">
+              <span>05</span>
+              <strong>Advisor passion path</strong>
+              <small>Let Raini explore your interests and separately recommend career directions, languages, and electives. You decide what to enroll in.</small>
+            </button>
+          </div>
+        </section>
+
+        <section class="enrollment-builder hidden" id="enrollmentBuilder" aria-live="polite">
+          <div class="enrollment-progress" id="enrollmentProgress">Step 1 of 5</div>
+          <section class="enrollment-step" data-enrollment-step="career">
+            <p class="eyebrow">Build your program</p><h2>Choose a career path</h2>
+            <p>Choose one career when it feels right. Your language, electives, and job training remain separate choices.</p>
+            <label for="enrollmentCareer">Career path</label><select id="enrollmentCareer"></select>
+            <label class="enrollment-custom-career hidden" id="enrollmentCustomCareerField" for="enrollmentCustomCareer">
+              Type your career
+              <input id="enrollmentCustomCareer" type="text" placeholder="For example: Tattoo Artist, Marine Biologist, Event Planner" maxlength="100" />
+            </label>
+          </section>
+          <section class="enrollment-step hidden" data-enrollment-step="job">
+            <p class="eyebrow">Build your program</p><h2>Add job training</h2>
+            <p>Choose practical training for any job, or continue without it.</p>
+            <label for="enrollmentJob">Job training</label><select id="enrollmentJob"></select>
+          </section>
+          <section class="enrollment-step hidden" data-enrollment-step="language">
+            <p class="eyebrow">Build your program</p><h2>Choose a language program</h2>
+            <p>Language study can support your chosen career or be completely independent.</p>
+            <label for="enrollmentLanguage">Language</label><select id="enrollmentLanguage"></select>
+          </section>
+          <section class="enrollment-step hidden" data-enrollment-step="electives">
+            <p class="eyebrow">Build your program</p><h2>Choose electives</h2>
+            <p>Select as many studios as you want. Each selection becomes its own course and project.</p>
+            <label for="enrollmentElectiveSearch">Find an elective</label>
+            <input id="enrollmentElectiveSearch" type="search" placeholder="Painting, photography, home economics, woodshop..." />
+            <div class="enrollment-elective-list" id="enrollmentElectiveChoices"></div>
+          </section>
+          <section class="enrollment-step hidden" data-enrollment-step="learning">
+            <p class="eyebrow">Learning experience</p><h2>How should your courses adapt?</h2>
+            <p>Choose a learning-style assessment for a tailored starting point, or let the university use visual, audio, reading, and hands-on learning together and adapt as you progress.</p>
+            <div class="enrollment-learning-options">
+              <button type="button" data-learning-mode="tailored">Take the learning-style assessment</button>
+              <button type="button" data-learning-mode="adaptive">Use all learning styles and adapt as I go</button>
+            </div>
+          </section>
+          <div class="enrollment-actions"><button id="enrollmentBack" type="button">Back</button><button id="enrollmentSkip" type="button">Skip for now</button><button id="enrollmentContinue" type="button">Continue</button></div>
+        </section>
+
+        <footer class="path-intro-footer">
+          <button id="introContinue" type="button">Continue to my portal</button>
+          <p>Your saved selections remain connected to this account and update whenever your path changes.</p>
+        </footer>
+      </main>
+    </section>
+
+    <main class="app-shell hidden" id="portalApp">
+      <aside class="sidebar" aria-label="University of FlowState navigation">
+        <div class="brand">
+          <img class="brand-logo" src="./flowstate-university-logo.svg" alt="University of FlowState logo" />
+          <span class="brand-extension">Knowledge is power.</span>
+        </div>
+
+        <nav class="nav-list" aria-label="Campus navigation">
+          <div class="nav-group">
+            <p>Campus</p>
+            <a href="#campus" class="active" data-portal-view="dashboard"><span>01</span>Dashboard</a>
+          </div>
+          <div class="nav-group">
+            <p>Academics</p>
+            <a class="academic-only" href="#courses" data-portal-view="courses"><span>02</span>Course Room</a>
+            <a class="academic-only" href="#lesson-plan" data-portal-view="program"><span>03</span>Program Plan</a>
+            <a class="academic-only" href="#grades" data-portal-view="grades"><span>04</span>Grades</a>
+            <a href="#media-studio" data-portal-view="media"><span>05</span>Media Library</a>
+            <a class="academic-only language-selection-only" href="#japanese" data-portal-view="language"><span>06</span>Language Studio</a>
+            <a class="academic-only" href="#writing-center" data-portal-view="lab"><span>07</span>Practice Lab</a>
+          </div>
+          <div class="nav-group">
+            <p>Guidance</p>
+            <a href="#advisor" data-portal-view="guidance"><span>08</span>Advisor &amp; Learning</a>
+            <a class="workforce-selection-only" href="#workforce" data-portal-view="workforce"><span>09</span>Job Training</a>
+            <a class="academic-only career-only" href="#roadmap" data-portal-view="career"><span>10</span>Career Center</a>
+          </div>
+          <div class="nav-group nav-more-group">
+            <p>More</p>
+            <a href="#advisor" data-portal-view="guidance" data-enrollment-action="restart"><span>11</span>Review career path</a>
+            <a href="#advisor" data-portal-view="guidance" data-enrollment-action="language"><span>12</span>Add or change language</a>
+            <a href="#advisor" data-portal-view="guidance" data-enrollment-action="electives"><span>13</span>Add or change electives</a>
+            <a href="#workforce" data-portal-view="workforce" data-enrollment-action="job"><span>14</span>Add job training</a>
+            <a href="#learning" data-portal-view="guidance" data-enrollment-action="learning"><span>15</span>Learning style setup</a>
+          </div>
+          <div class="nav-group">
+            <p>University</p>
+            <a href="#about-university" data-portal-view="about"><span>16</span>About</a>
+          </div>
+        </nav>
+
+        <section class="mini-card">
+          <p class="eyebrow">Student status</p>
+          <strong>University of FlowState Campus</strong>
+          <span>Goals, focus blocks, lessons, advising, and portfolio work connected in one student rhythm</span>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <div class="topbar institutional-bar" aria-label="Program summary">
+          <div>
+            <strong id="studentPortalTitle">University of FlowState</strong>
+            <span id="studentPortalMeta">Office of Online Learning | Active enrollment</span>
+          </div>
+          <button
+            class="mobile-account-toggle"
+            type="button"
+            aria-controls="portalAccountActions"
+            aria-expanded="false"
+          >
+            Account
+          </button>
+          <div class="topbar-actions" id="portalAccountActions">
+            <span>Online Campus</span>
+            <span>Spring 2026</span>
+            <span>Good Standing</span>
+            <button class="flowstate-import-trigger" id="importToFlowStateButton" type="button">Import to FlowState app</button>
+            <button class="delete-account-trigger" id="deleteAccountButton" type="button">Delete account</button>
+            <button id="signOutButton" type="button">Sign out</button>
+          </div>
+        </div>
+
+        <section class="portal-view-toolbar" id="portalViewToolbar" aria-label="Current portal area">
+          <div class="portal-view-heading">
+            <p class="portal-breadcrumb">
+              <span>Student portal</span>
+              <span aria-hidden="true">/</span>
+              <strong id="portalViewBreadcrumb">Dashboard</strong>
+            </p>
+            <h1 id="portalViewTitle">Dashboard</h1>
+            <p id="portalViewDescription">Your academic status, current path, and fastest next steps.</p>
+          </div>
+          <div class="portal-mobile-navigation">
+            <label for="mobilePortalNavigation">Go to</label>
+            <select id="mobilePortalNavigation" aria-label="Choose a portal area">
+              <option value="dashboard">Dashboard</option>
+              <option value="courses">Course Room</option>
+              <option value="program">Program Plan</option>
+              <option value="grades">Grades</option>
+              <option value="media">Media Library</option>
+              <option value="language">Language Studio</option>
+              <option value="lab">Practice Lab</option>
+              <option value="guidance">Advisor &amp; Learning</option>
+              <option value="workforce">Job Training</option>
+              <option value="career">Career Center</option>
+              <option value="about">About University</option>
+            </select>
+          </div>
+          <button class="portal-dashboard-button hidden" id="portalDashboardButton" type="button">
+            Back to dashboard
+          </button>
+        </section>
+
+        <header class="hero" id="campus" data-portal-view-panel="dashboard">
+          <div>
+            <p class="eyebrow">Undergraduate certificate portal</p>
+            <h2 id="portalHeroTitle">Career Exploration Portal</h2>
+            <p id="portalHeroText">
+              A structured online program with weekly modules, graded labs, transcript progress,
+              portfolio requirements, advising checkpoints, and career preparation at University of FlowState.
+            </p>
+            <div class="hero-actions" aria-label="Primary course actions">
+              <a href="#courses">Enter classroom</a>
+              <a href="#lesson-plan">View degree plan</a>
+            </div>
+            <div class="extension-strip" aria-label="FlowState product family">
+              <span>FlowState OS: goals + focus</span>
+              <span>University: curriculum + advising</span>
+              <span>Portfolio: proof of skill</span>
+              <span>Credential: career certificate</span>
+            </div>
+          </div>
+          <div class="hero-showcase" aria-label="University of FlowState course snapshot">
+            <div class="hero-panel">
+              <span class="metric-label">Degree progress audit</span>
+              <strong id="dailyScore">Open</strong>
+              <span>No academic path chosen yet</span>
+              <div class="meter" aria-hidden="true"><span></span></div>
+              <div class="hero-mini-list">
+                <span>Raini Smith | Student Guidance</span>
+                <span>Lab 01 submission pending</span>
+              </div>
+            </div>
+            <div class="campus-card">
+              <div class="campus-card-top">
+                <span>U</span>
+                <strong>Academic services</strong>
+              </div>
+              <div class="campus-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p>Student Guidance Advisor Raini Smith | Career, learning, language, elective, and pathway inquiries</p>
+            </div>
+            <div class="mini-transcript">
+              <span>GDA 101</span>
+              <strong>Choose your path</strong>
+              <small>Guidance intake</small>
+            </div>
+          </div>
+        </header>
+
+        <section class="grid overview-grid academic-only" data-portal-view-panel="dashboard" aria-label="Student overview">
+          <article class="stat-card brand-stat">
+            <span class="stat-icon">Path</span>
+            <span>Path status</span>
+            <strong>Exploring</strong>
+            <small>Choose a career when ready</small>
+          </article>
+          <article class="stat-card">
+            <span>Academic term</span>
+            <strong>Term 1</strong>
+            <small>Career foundations</small>
+          </article>
+          <article class="stat-card">
+            <span>Current grade</span>
+            <strong>0</strong>
+            <small>No grade yet</small>
+          </article>
+          <article class="stat-card">
+            <span>Credits earned</span>
+            <strong>3</strong>
+            <small>24 certificate credits required</small>
+          </article>
+          <article class="stat-card">
+            <span>Student services</span>
+            <strong>Open</strong>
+            <small>Resume, GitHub, interviews</small>
+          </article>
+        </section>
+
+        <section class="content-grid" id="course">
+          <article class="panel college-panel academic-only" id="courses" data-portal-view-panel="courses">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">My courses</p>
+                <h3>Current enrollment</h3>
+              </div>
+              <span class="pill">Spring cohort</span>
+            </div>
+            <div class="current-lesson-action" id="currentLessonAction" aria-live="polite"></div>
+            <section class="active-lesson-session hidden" id="activeLessonSession" aria-live="polite"></section>
+            <div class="course-grid" id="courseGrid" aria-live="polite"></div>
+          </article>
+
+          <article class="panel grades-panel academic-only" id="grades" data-portal-view-panel="grades">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Gradebook</p>
+                <h3>Career readiness score</h3>
+              </div>
+              <span class="pill">Calculated score</span>
+            </div>
+            <div class="gradebook">
+              <div class="grade-ring">
+                <strong>0</strong>
+                <span>/100</span>
+              </div>
+              <div class="grade-list">
+                <div><span>Assignments</span><strong>4 / 6 complete</strong></div>
+                <div><span>Labs</span><strong>1 / 3 submitted</strong></div>
+                <div><span>Portfolio</span><strong>Project 01 drafting</strong></div>
+                <div><span>Career studio</span><strong>Starts Term 5</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel planner academic-only" id="assignments" data-portal-view-panel="courses">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Assignments</p>
+                <h3>This week</h3>
+              </div>
+              <button id="resetPlan" type="button">Reset</button>
+            </div>
+            <div id="taskList" class="task-list"></div>
+          </article>
+
+          <article class="panel academic-only" id="classroom" data-portal-view-panel="courses">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Classroom</p>
+                <h3>Lecture notes</h3>
+              </div>
+              <span class="pill">Metric to meaning</span>
+            </div>
+            <div class="lesson-tabs" role="tablist" aria-label="Lessons">
+              <button class="lesson-tab active" data-lesson="day1" type="button">Lecture 1</button>
+              <button class="lesson-tab" data-lesson="day2" type="button">Lecture 2</button>
+              <button class="lesson-tab" data-lesson="day3" type="button">Lecture 3</button>
+            </div>
+            <div class="prompt-box" id="lessonBox" aria-live="polite"></div>
+          </article>
+
+          <article class="panel media-studio-panel" id="media-studio" data-portal-view-panel="media">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Multimedia learning studio</p>
+                <h3>Video, audio, photography, diagrams, and presentations</h3>
+              </div>
+              <span class="pill">Playable lessons</span>
+            </div>
+            <div class="media-studio-grid" id="mediaStudioGrid" aria-live="polite"></div>
+            <div class="media-lesson-viewer" id="mediaLessonViewer" aria-live="polite">
+              <span>Multimedia lesson player</span>
+              <strong>Choose a multimedia lesson</strong>
+              <p>Open a lesson to play video or narration, inspect full photographs, use an interactive diagram, or run a timed presentation. Written context remains available with every format.</p>
+            </div>
+          </article>
+
+          <article class="panel lesson-plan-panel academic-only" id="lesson-plan" data-portal-view-panel="program">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Syllabus</p>
+                <h3>Career-ready curriculum</h3>
+              </div>
+              <span class="pill">6-term certificate</span>
+            </div>
+            <div class="module-grid" id="moduleGrid" aria-live="polite"></div>
+          </article>
+
+          <article class="panel academy-panel academic-only" id="program-requirements" data-portal-view-panel="program">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Transcript</p>
+                <h3>Graduation requirements</h3>
+              </div>
+              <span class="pill">Student record</span>
+            </div>
+            <div class="transcript-grid">
+              <div>
+                <span>Portfolio credits</span>
+                <strong>3 projects</strong>
+                <small>Career proof, applied elective, capstone</small>
+              </div>
+              <div>
+                <span>Technical labs</span>
+                <strong>40+ hours</strong>
+                <small>Career tools, scenarios, standards, feedback</small>
+              </div>
+              <div>
+                <span>Career studio</span>
+                <strong>Ready kit</strong>
+                <small>Resume, GitHub, LinkedIn, interview stories</small>
+              </div>
+              <div>
+                <span>Capstone</span>
+                <strong>Final demo</strong>
+                <small>Explain one project like a real analyst</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel timeline-panel academic-only" id="timeline" data-portal-view-panel="program">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Academic calendar</p>
+                <h3>6-month school path</h3>
+              </div>
+              <span class="pill">Graduation plan</span>
+            </div>
+            <div class="timeline-grid" id="timelineGrid" aria-live="polite"></div>
+          </article>
+
+          <article class="panel dataset-panel academic-only" id="dataset" data-portal-view-panel="lab">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Lab 01</p>
+                <h3>Career Practice Dataset</h3>
+              </div>
+              <span class="pill">Starter dataset</span>
+            </div>
+            <div class="table-wrap" tabindex="0" aria-label="Player dataset table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Country</th>
+                    <th>Platform</th>
+                    <th>Sessions</th>
+                    <th>Level</th>
+                    <th>Revenue</th>
+                    <th>Last login</th>
+                    <th>Churn</th>
+                  </tr>
+                </thead>
+                <tbody id="playerRows"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="panel academic-only" id="writing-center" data-portal-view-panel="lab">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Writing center</p>
+                <h3>Portfolio language</h3>
+              </div>
+              <span class="pill">Copy-ready</span>
+            </div>
+            <div class="analyst-note">
+              <strong>Career insight</strong>
+              <p>
+                Your selected path will generate a career-specific explanation here, including the
+                skill you practiced, what improved, and why the work matters.
+              </p>
+            </div>
+            <div class="analyst-note">
+              <strong>Next recommendation</strong>
+              <p>
+                Use this space to turn your project into a clear next step for employers, clients,
+                apprenticeships, training programs, or your own portfolio.
+              </p>
+            </div>
+          </article>
+
+          <article class="panel japanese-panel academic-only language-selection-only" id="japanese" data-portal-view-panel="language">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Language program</p>
+                <h3>Language studio</h3>
+              </div>
+              <span class="pill">Standalone or combined</span>
+            </div>
+            <div class="language-path-summary" id="languagePathSummary">
+              <div>
+                <span>General language mastery</span>
+                <strong>Everyday fluency</strong>
+                <p id="languageFluencySummary">
+                  Build listening, speaking, comprehension, culture, and practical conversation for life beyond work.
+                </p>
+              </div>
+              <div>
+                <span>Selected-career connection</span>
+                <strong>Professional application</strong>
+                <p id="languageCareerSummary">
+                  Apply the same language to vocabulary, people, situations, and communication from your chosen path.
+                </p>
+              </div>
+            </div>
+            <div class="flashcard" id="flashcard" tabindex="0" role="button">
+              <span id="cardType">Vocabulary</span>
+              <strong id="cardFront">Data</strong>
+              <p id="cardBack">Click to reveal meaning</p>
+            </div>
+            <div class="button-row">
+              <button id="againCard" type="button">Again</button>
+              <button id="knowCard" type="button">Know it</button>
+            </div>
+          </article>
+
+          <article class="panel advisor-panel" id="advisor" data-portal-view-panel="guidance">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Career advising center</p>
+                <h3>Build and update your study plan</h3>
+              </div>
+              <span class="pill">Passion audit</span>
+            </div>
+
+            <div class="advisor-grid">
+              <form class="advisor-form" id="advisorForm">
+                <fieldset id="careerProgramSelection" class="program-selection-fieldset">
+                  <legend>Career program - choose a listed path or type any career</legend>
+                  <p class="field-note">A career program stands on its own. A language and electives are optional additions.</p>
+                  <select id="careerGoal" aria-label="Career direction">
+                    <option value="">Undecided - help me explore first</option>
+                    <option value="gameData">Game Data Analyst</option>
+                    <option value="dataAnalyst">Data Analyst</option>
+                    <option value="businessIntelligence">Business Intelligence Analyst</option>
+                    <option value="productAnalyst">Product Analyst</option>
+                    <option value="uxResearch">UX Researcher</option>
+                    <option value="marketResearch">Market Research Analyst</option>
+                    <option value="localization">Localization Specialist</option>
+                    <option value="gameProducer">Associate Game Producer</option>
+                    <option value="communityManager">Community Manager</option>
+                    <option value="contentStrategist">Content Strategist</option>
+                    <option value="digitalMarketing">Digital Marketing Analyst</option>
+                    <option value="socialMedia">Social Media Strategist</option>
+                    <option value="technicalWriter">Technical Writer</option>
+                    <option value="instructionalDesign">Instructional Designer</option>
+                    <option value="teacher">Teacher or Tutor</option>
+                    <option value="frontend">Frontend Developer</option>
+                    <option value="softwareDeveloper">Software Developer</option>
+                    <option value="dataScientist">Data Scientist</option>
+                    <option value="aiSpecialist">AI Tools Specialist</option>
+                    <option value="cloudSupport">Cloud Support Associate</option>
+                    <option value="webDesigner">Web Designer</option>
+                    <option value="uiDesigner">UI Designer</option>
+                    <option value="graphicDesigner">Graphic Designer</option>
+                    <option value="illustrator">Illustrator</option>
+                    <option value="photographer">Photographer</option>
+                    <option value="videoEditor">Video Editor</option>
+                    <option value="voiceActor">Voice Actor</option>
+                    <option value="podcaster">Podcast Producer</option>
+                    <option value="performingArts">Drama and Performing Arts Creator</option>
+                    <option value="esports">Esports Operations Coordinator</option>
+                    <option value="qaTester">Game QA Tester</option>
+                    <option value="cybersecurity">Cybersecurity Analyst</option>
+                    <option value="projectManager">Project Coordinator</option>
+                    <option value="hrPeople">People Operations Analyst</option>
+                    <option value="finance">Financial Analyst</option>
+                    <option value="accounting">Accounting Assistant</option>
+                    <option value="operations">Operations Analyst</option>
+                    <option value="customerSuccess">Customer Success Specialist</option>
+                    <option value="sportsAnalyst">Sports Analyst</option>
+                    <option value="environmental">Environmental Data Analyst</option>
+                    <option value="libraryArchive">Library and Archive Technician</option>
+                    <option value="museum">Museum or Gallery Program Assistant</option>
+                    <option value="fashion">Fashion and Costume Creative</option>
+                    <option value="eventPlanner">Event Planner</option>
+                    <option value="grantWriter">Grant Writer</option>
+                    <option value="wellnessCoordinator">Wellness Program Coordinator</option>
+                    <option value="healthData">Health Data Analyst</option>
+                    <option value="nonprofit">Nonprofit Program Analyst</option>
+                    <option value="legalOps">Legal Operations Assistant</option>
+                    <option value="entrepreneur">Creative Entrepreneur</option>
+                    <option value="custom">Any career - type your own below</option>
+                  </select>
+                  <label class="custom-career-field">
+                    Career not listed or more specific
+                    <input
+                      id="customCareerTitle"
+                      type="text"
+                      list="careerExamples"
+                      placeholder="Type any career: nurse, pilot, architect, mechanic, animator, lawyer..."
+                    />
+                  </label>
+                  <datalist id="careerExamples">
+                    <option value="Nurse"></option>
+                    <option value="Doctor"></option>
+                    <option value="Pilot"></option>
+                    <option value="Architect"></option>
+                    <option value="Electrician"></option>
+                    <option value="Mechanic"></option>
+                    <option value="Plumber"></option>
+                    <option value="Welder"></option>
+                    <option value="Chef"></option>
+                    <option value="Real Estate Agent"></option>
+                    <option value="Lawyer"></option>
+                    <option value="Paralegal"></option>
+                    <option value="Veterinarian"></option>
+                    <option value="Dental Hygienist"></option>
+                    <option value="Cosmetologist"></option>
+                    <option value="Animator"></option>
+                    <option value="Film Director"></option>
+                    <option value="Interior Designer"></option>
+                    <option value="Police Officer"></option>
+                    <option value="Firefighter"></option>
+                    <option value="Social Worker"></option>
+                    <option value="Therapist"></option>
+                    <option value="Librarian"></option>
+                    <option value="Scientist"></option>
+                    <option value="Translator"></option>
+                    <option value="Flight Attendant"></option>
+                    <option value="Construction Manager"></option>
+                    <option value="Tattoo Artist"></option>
+                    <option value="Personal Trainer"></option>
+                    <option value="Pharmacist"></option>
+                    <option value="Physical Therapist"></option>
+                    <option value="Radiology Technician"></option>
+                    <option value="Software Engineer"></option>
+                    <option value="Cybersecurity Specialist"></option>
+                    <option value="Civil Engineer"></option>
+                    <option value="Accountant"></option>
+                    <option value="Bookkeeper"></option>
+                    <option value="Electric Vehicle Technician"></option>
+                    <option value="Solar Installer"></option>
+                    <option value="Truck Driver"></option>
+                    <option value="Dispatcher"></option>
+                    <option value="EMT"></option>
+                    <option value="Correctional Officer"></option>
+                    <option value="Military Officer"></option>
+                    <option value="Professor"></option>
+                    <option value="Research Assistant"></option>
+                    <option value="Data Engineer"></option>
+                    <option value="Product Manager"></option>
+                    <option value="Marketing Manager"></option>
+                    <option value="Human Resources Specialist"></option>
+                    <option value="Court Reporter"></option>
+                    <option value="Insurance Agent"></option>
+                    <option value="Loan Officer"></option>
+                    <option value="Massage Therapist"></option>
+                    <option value="Esthetician"></option>
+                    <option value="Floral Designer"></option>
+                    <option value="Baker"></option>
+                    <option value="Game Designer"></option>
+                    <option value="3D Artist"></option>
+                    <option value="Music Producer"></option>
+                    <option value="Author"></option>
+                    <option value="Journalist"></option>
+                    <option value="Public Relations Specialist"></option>
+                    <option value="Urban Planner"></option>
+                    <option value="Park Ranger"></option>
+                    <option value="Marine Biologist"></option>
+                    <option value="Forensic Scientist"></option>
+                  </datalist>
+                </fieldset>
+
+                <section class="career-switch-box" aria-label="Career switching">
+                  <div id="currentCareerStatus">
+                    <span>Active career path</span>
+                    <strong>Not chosen yet</strong>
+                    <p>Use the advisor conversation or choose a career above when something feels right.</p>
+                  </div>
+                  <button id="switchCareerButton" type="button">Choose selected career</button>
+                  <p class="career-save-status" id="careerSaveStatus" role="status">
+                    Choose a career to save it to your student account.
+                  </p>
+                  <div class="career-history" id="careerHistory" aria-live="polite"></div>
+                </section>
+
+                <fieldset>
+                  <legend>What pulls your attention?</legend>
+                  <p class="field-note">Choose every individual activity or subject that feels true. These answers directly shape your recommendations.</p>
+                  <div class="interest-choice-grid">
+                    <label><input type="checkbox" name="passion" value="data" /> Finding patterns in numbers or information</label>
+                    <label><input type="checkbox" name="passion" value="research" /> Investigating questions and gathering evidence</label>
+                    <label><input type="checkbox" name="passion" value="games" /> Games, play, and player experience</label>
+                    <label><input type="checkbox" name="passion" value="strategy" /> Business strategy and product decisions</label>
+                    <label><input type="checkbox" name="passion" value="sales" /> Sales, persuasion, and helping people choose</label>
+                    <label><input type="checkbox" name="passion" value="finance" /> Money, budgeting, accounting, and markets</label>
+                    <label><input type="checkbox" name="passion" value="entrepreneurship" /> Building a business or independent practice</label>
+                    <label><input type="checkbox" name="passion" value="coding" /> Coding, websites, apps, and software</label>
+                    <label><input type="checkbox" name="passion" value="ai" /> AI tools, automation, and future technology</label>
+                    <label><input type="checkbox" name="passion" value="cyber" /> Cybersecurity, systems, and technical support</label>
+                    <label><input type="checkbox" name="passion" value="painting" /> Painting, drawing, and illustration</label>
+                    <label><input type="checkbox" name="passion" value="design" /> Graphic, fashion, interior, or experience design</label>
+                    <label><input type="checkbox" name="passion" value="photo" /> Photography and visual storytelling</label>
+                    <label><input type="checkbox" name="passion" value="video" /> Film, video editing, and streaming</label>
+                    <label><input type="checkbox" name="passion" value="writing" /> Writing, journalism, and storytelling</label>
+                    <label><input type="checkbox" name="passion" value="music" /> Music, sound, and audio production</label>
+                    <label><input type="checkbox" name="passion" value="performance" /> Acting, voice acting, dance, and performance</label>
+                    <label><input type="checkbox" name="passion" value="language" /> Languages, translation, and localization</label>
+                    <label><input type="checkbox" name="passion" value="travel" /> Travel, world cultures, and international work</label>
+                    <label><input type="checkbox" name="passion" value="teaching" /> Teaching, tutoring, and coaching</label>
+                    <label><input type="checkbox" name="passion" value="healthcare" /> Healthcare and direct patient support</label>
+                    <label><input type="checkbox" name="passion" value="counseling" /> Psychology, listening, and emotional support</label>
+                    <label><input type="checkbox" name="passion" value="community" /> Community programs, nonprofits, and public service</label>
+                    <label><input type="checkbox" name="passion" value="justice" /> Law, advocacy, ethics, and social impact</label>
+                    <label><input type="checkbox" name="passion" value="animals" /> Animals and veterinary care</label>
+                    <label><input type="checkbox" name="passion" value="environment" /> Nature, sustainability, and environmental work</label>
+                    <label><input type="checkbox" name="passion" value="trades" /> Construction, woodshop, and skilled trades</label>
+                    <label><input type="checkbox" name="passion" value="repair" /> Mechanics, repair, and troubleshooting</label>
+                    <label><input type="checkbox" name="passion" value="food" /> Cooking, baking, nutrition, and food culture</label>
+                    <label><input type="checkbox" name="passion" value="wellness" /> Fitness, wellness, and healthy routines</label>
+                    <label><input type="checkbox" name="passion" value="home" /> Home economics, caregiving, and life skills</label>
+                    <label><input type="checkbox" name="passion" value="hospitality" /> Customer service, hospitality, and guest care</label>
+                    <label><input type="checkbox" name="passion" value="events" /> Events, organizing, and bringing people together</label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="work-style-assessment">
+                  <legend>Build your work-style profile</legend>
+                  <p class="field-note">Choose what fits you now. Your answers shape the recommended work setting, course rhythm, feedback, projects, and career preparation.</p>
+
+                  <div class="work-style-grid">
+                    <label class="work-style-question" for="workStyle">
+                      <span>How do you most enjoy contributing?</span>
+                      <select id="workStyle" aria-label="Preferred way to contribute">
+                        <option value="analytical">Analyzing information and solving problems</option>
+                        <option value="creative">Designing, imagining, or making</option>
+                        <option value="social">Collaborating, presenting, or connecting</option>
+                        <option value="independent">Researching and building independently</option>
+                        <option value="service">Helping, teaching, or supporting people</option>
+                        <option value="entrepreneurial">Creating opportunities and leading ideas</option>
+                        <option value="practical">Building, repairing, or working hands-on</option>
+                        <option value="organizing">Planning, coordinating, and improving systems</option>
+                      </select>
+                    </label>
+
+                    <label class="work-style-question" for="workEnvironment">
+                      <span>Where would you feel most comfortable working?</span>
+                      <select id="workEnvironment">
+                        <option value="mixed">A mix of settings and activities</option>
+                        <option value="quiet">A quiet office, library, lab, or home workspace</option>
+                        <option value="studio">A creative studio, kitchen, stage, or production space</option>
+                        <option value="public">A lively customer, classroom, clinic, or community setting</option>
+                        <option value="workshop">A workshop, job site, technical space, or maker lab</option>
+                        <option value="outdoors">Outdoors, in nature, or moving between locations</option>
+                        <option value="remote">Primarily remote or hybrid</option>
+                        <option value="travel">Traveling or working across cultures and locations</option>
+                      </select>
+                    </label>
+
+                    <label class="work-style-question" for="collaborationStyle">
+                      <span>How much interaction feels right?</span>
+                      <select id="collaborationStyle">
+                        <option value="balanced">A balance of solo and team time</option>
+                        <option value="solo">Mostly independent deep work</option>
+                        <option value="partner">One-on-one or with a trusted partner</option>
+                        <option value="small-team">A close small team</option>
+                        <option value="large-team">A larger cross-functional team</option>
+                        <option value="public-facing">Frequent customer, client, patient, or audience contact</option>
+                        <option value="lead">Leading, coordinating, or mentoring others</option>
+                      </select>
+                    </label>
+
+                    <label class="work-style-question" for="paceStyle">
+                      <span>What pace helps you do your best work?</span>
+                      <select id="paceStyle">
+                        <option value="steady">Steady and predictable</option>
+                        <option value="varied">Varied, with different tasks</option>
+                        <option value="sprints">Focused project sprints with recovery time</option>
+                        <option value="fast">Fast-moving with quick decisions</option>
+                        <option value="urgent">High urgency and real-time problem solving</option>
+                        <option value="seasonal">Seasonal cycles or changing busy periods</option>
+                      </select>
+                    </label>
+
+                    <label class="work-style-question" for="structureStyle">
+                      <span>How much structure do you prefer?</span>
+                      <select id="structureStyle">
+                        <option value="clear">Clear instructions, routines, and expectations</option>
+                        <option value="guided">A clear goal with coaching along the way</option>
+                        <option value="flexible">Flexible methods within a deadline</option>
+                        <option value="autonomous">Freedom to define the goal and approach</option>
+                        <option value="systems">Organized systems that I can improve</option>
+                      </select>
+                    </label>
+
+                    <label class="work-style-question" for="feedbackStyle">
+                      <span>What kind of feedback helps most?</span>
+                      <select id="feedbackStyle">
+                        <option value="coaching">Supportive coaching and discussion</option>
+                        <option value="written">Written expectations, examples, and notes</option>
+                        <option value="frequent">Frequent quick feedback while I work</option>
+                        <option value="milestone">Feedback at planned milestones</option>
+                        <option value="results">Clear results and room to self-correct</option>
+                      </select>
+                    </label>
+
+                    <label class="work-style-question" for="energyPattern">
+                      <span>How do you prefer to use your energy?</span>
+                      <select id="energyPattern">
+                        <option value="short-blocks">Short focused blocks with breaks</option>
+                        <option value="deep-blocks">Long uninterrupted concentration blocks</option>
+                        <option value="conversation">Alternating people time and recovery time</option>
+                        <option value="movement">Learning and working through movement</option>
+                        <option value="variable">A flexible rhythm that changes by day</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <div class="work-value-group" role="group" aria-labelledby="workValuesLabel">
+                    <span id="workValuesLabel">What matters most in a satisfying career? Choose all that apply.</span>
+                    <div class="work-value-grid">
+                      <label><input type="checkbox" name="workValue" value="stability" /> Stability and reliable expectations</label>
+                      <label><input type="checkbox" name="workValue" value="income" /> Income growth and advancement</label>
+                      <label><input type="checkbox" name="workValue" value="creativity" /> Creativity and self-expression</label>
+                      <label><input type="checkbox" name="workValue" value="impact" /> Meaning and positive impact</label>
+                      <label><input type="checkbox" name="workValue" value="flexibility" /> Schedule or location flexibility</label>
+                      <label><input type="checkbox" name="workValue" value="mastery" /> Skill mastery and expertise</label>
+                      <label><input type="checkbox" name="workValue" value="recognition" /> Recognition and visible achievement</label>
+                      <label><input type="checkbox" name="workValue" value="community" /> Belonging and community</label>
+                      <label><input type="checkbox" name="workValue" value="autonomy" /> Independence and ownership</label>
+                      <label><input type="checkbox" name="workValue" value="variety" /> Variety and new experiences</label>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset id="languageProgramSelection" class="program-selection-fieldset more-only-program-selection">
+                  <legend>Language program - standalone or career-connected</legend>
+                  <select id="languageTrack" aria-label="Language track">
+                    <option value="None">No language program selected</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                    <option value="Mandarin Chinese">Mandarin Chinese</option>
+                    <option value="Cantonese">Cantonese</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="German">German</option>
+                    <option value="Dutch">Dutch</option>
+                    <option value="Swedish">Swedish</option>
+                    <option value="Norwegian">Norwegian</option>
+                    <option value="Greek">Greek</option>
+                    <option value="Hebrew">Hebrew</option>
+                    <option value="Turkish">Turkish</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Polish">Polish</option>
+                    <option value="Ukrainian">Ukrainian</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Bengali">Bengali</option>
+                    <option value="Punjabi">Punjabi</option>
+                    <option value="Vietnamese">Vietnamese</option>
+                    <option value="Tagalog">Tagalog</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Indonesian">Indonesian</option>
+                    <option value="Swahili">Swahili</option>
+                    <option value="Yoruba">Yoruba</option>
+                    <option value="Haitian Creole">Haitian Creole</option>
+                    <option value="American Sign Language">American Sign Language</option>
+                    <option value="Latin">Latin</option>
+                  </select>
+                  <small class="field-note">
+                    This is a complete independent language program for everyday life, culture, listening, speaking, comprehension,
+                    travel, and personal interests. If you also choose a career, a separate professional strand is added.
+                  </small>
+                </fieldset>
+
+                <fieldset id="electiveProgramSelection" class="program-selection-fieldset more-only-program-selection">
+                  <legend>Elective program - choose one or several</legend>
+                  <p class="field-note">Every elective is a standalone course with its own lessons, multimedia, project, and completion record. No career or language is required.</p>
+                  <p class="field-note">Book-study electives use original summaries and reflective exercises. They supplement legally obtained books and do not reproduce or replace them.</p>
+                  <div class="elective-catalog-toolbar">
+                    <label for="electiveSearch">
+                      Find an elective
+                      <input id="electiveSearch" type="search" placeholder="Search art, science, business, cooking, technology..." autocomplete="off" />
+                    </label>
+                    <div class="elective-catalog-status">
+                      <span id="electiveCatalogTotal">Loading elective catalog...</span>
+                      <output id="electiveSelectedCount" aria-live="polite">0 selected</output>
+                      <button id="clearElectives" type="button" disabled>Clear selections</button>
+                    </div>
+                  </div>
+                  <div class="elective-catalog" id="electiveTrack" aria-label="Elective catalog" tabindex="-1"></div>
+                  <p class="elective-empty hidden" id="electiveEmpty">No electives match that search. Try a broader subject.</p>
+                </fieldset>
+
+                <button type="submit">Create my study plan</button>
+              </form>
+
+              <div class="advisor-result" id="advisorResult" aria-live="polite">
+                <span>Recommended pathway</span>
+                <strong>Still exploring</strong>
+                <p>
+                  Start with the advisor conversation, then choose a career, language, and elective when
+                  the pattern becomes clearer.
+                </p>
+                <div class="advisor-columns">
+                  <div>
+                    <small>Career focus</small>
+                    <b>Career fit, skills, work setting, and purpose</b>
+                  </div>
+                  <div>
+                    <small>Portfolio project</small>
+                    <b>One project matched to the career you choose</b>
+                  </div>
+                  <div>
+                    <small>Elective proof</small>
+                    <b>Language or elective proof attached only if selected</b>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="advisor-chat" aria-label="Conversational career advisor">
+              <div class="advisor-chat-header">
+                <div>
+                  <p class="eyebrow">Student guidance inquiry</p>
+                  <h4>Raini Smith, Student Guidance Advisor</h4>
+                </div>
+                <button id="resetAdvisorChat" type="button">Start new inquiry</button>
+              </div>
+
+              <div class="advisor-case-bar">
+                <div><span>Inquiry</span><strong id="advisorCaseId">GUIDANCE-001</strong></div>
+                <div><span>Status</span><strong id="advisorCaseStatus">Intake open</strong></div>
+                <div><span>Next step</span><strong id="advisorCaseNext">Describe what brought you here</strong></div>
+              </div>
+
+              <div class="advisor-case-flow" aria-label="Guidance inquiry progress">
+                <span class="active">1. Intake</span>
+                <span>2. Reflection</span>
+                <span>3. Options</span>
+                <span>4. Action plan</span>
+              </div>
+
+              <div class="chat-window" id="advisorChatLog" aria-live="polite">
+                <div class="chat-message advisor">
+                  <span>Raini Smith</span>
+                  <p>Welcome to Student Guidance. What would you like help understanding about your career direction, language interests, electives, or next path?</p>
+                </div>
+              </div>
+
+              <form class="chat-composer" id="advisorChatForm">
+                <label for="advisorInquiryType">Inquiry type</label>
+                <select id="advisorInquiryType">
+                  <option value="career-discovery">Career and passion discovery</option>
+                  <option value="path-change">Changing a career or study path</option>
+                  <option value="elective-planning">Language and elective planning</option>
+                  <option value="learning-support">Learning style and retention support</option>
+                  <option value="job-training">Practical job training</option>
+                  <option value="course-progress">Course access and progress</option>
+                  <option value="general-guidance">General student guidance</option>
+                </select>
+                <label for="advisorAnswer">Your answer</label>
+                <textarea
+                  id="advisorAnswer"
+                  rows="4"
+                  placeholder="Example: I loved helping a customer find the right thing, or I lose track of time when I edit photos, study Japanese, solve data puzzles, perform, organize people..."
+                ></textarea>
+                <button type="submit">Submit inquiry response</button>
+              </form>
+
+              <div class="passion-profile" id="passionProfile">
+                <span>Emerging passion profile</span>
+                <strong>Not enough answers yet</strong>
+                <p>Answer a few questions and Raini will look for career, language, and elective possibilities that fit your interests and goals.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel learning-panel" id="learning" data-portal-view-panel="guidance">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Learning profile assessment</p>
+                <h3>How do you learn and retain information?</h3>
+              </div>
+              <span class="pill">Course personalization</span>
+            </div>
+
+            <div class="learning-grid">
+              <form class="learning-form" id="learningForm">
+                <fieldset>
+                  <legend>When learning something new, what helps first?</legend>
+                  <label><input type="radio" name="learnFirst" value="visual" /> Seeing a chart, diagram, demo, or example</label>
+                  <label><input type="radio" name="learnFirst" value="audio" /> Hearing someone explain it out loud</label>
+                  <label><input type="radio" name="learnFirst" value="readwrite" /> Reading steps and writing notes</label>
+                  <label><input type="radio" name="learnFirst" value="kinesthetic" /> Trying it with my hands right away</label>
+                </fieldset>
+
+                <fieldset>
+                  <legend>What makes information stick?</legend>
+                  <label><input type="radio" name="retainBest" value="visual" /> Color coding, images, maps, and examples I can picture</label>
+                  <label><input type="radio" name="retainBest" value="audio" /> Repeating it out loud or talking it through</label>
+                  <label><input type="radio" name="retainBest" value="readwrite" /> Summaries, checklists, flashcards, and written practice</label>
+                  <label><input type="radio" name="retainBest" value="kinesthetic" /> Practice tasks, projects, roleplay, or building something</label>
+                </fieldset>
+
+                <fieldset>
+                  <legend>When confused, what do you naturally do?</legend>
+                  <label><input type="radio" name="confused" value="visual" /> Look for a visual example</label>
+                  <label><input type="radio" name="confused" value="audio" /> Ask someone to explain it</label>
+                  <label><input type="radio" name="confused" value="readwrite" /> Rewrite the instructions in my own words</label>
+                  <label><input type="radio" name="confused" value="kinesthetic" /> Test it until I understand what works</label>
+                </fieldset>
+
+                <button type="submit">Save learning profile</button>
+              </form>
+
+              <div class="learning-result" id="learningResult" aria-live="polite">
+                <span>Learning profile</span>
+                <strong>Not assessed yet</strong>
+                <p>Complete the quick assessment so University of FlowState can adapt courses, practice, and retention advice to how you learn.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel workforce-panel workforce-selection-only" id="workforce" data-portal-view-panel="workforce">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Workforce training center</p>
+                <h3>Be excellent at any job</h3>
+              </div>
+              <span class="pill">No degree required</span>
+            </div>
+
+            <div class="workforce-grid">
+              <div class="workforce-picker">
+                <label for="jobTrainingTrack">Choose a job training path or type any job</label>
+                <select id="jobTrainingTrack" aria-label="Basic job training path">
+                  <option value="sales">Sales Associate</option>
+                  <option value="barista">Barista</option>
+                  <option value="cashier">Cashier</option>
+                  <option value="customerService">Customer Service Representative</option>
+                  <option value="retail">Retail Team Member</option>
+                  <option value="server">Restaurant Server</option>
+                  <option value="host">Host or Front Desk Greeter</option>
+                  <option value="receptionist">Receptionist</option>
+                  <option value="callCenter">Call Center Agent</option>
+                  <option value="foodPrep">Food Prep Crew Member</option>
+                  <option value="warehouse">Warehouse Associate</option>
+                  <option value="delivery">Delivery Driver</option>
+                  <option value="cleaning">Housekeeping or Cleaning Crew</option>
+                  <option value="childcare">Childcare Assistant</option>
+                  <option value="caregiver">Caregiver or Home Health Aide</option>
+                  <option value="adminAssistant">Administrative Assistant</option>
+                  <option value="bankTeller">Bank Teller</option>
+                  <option value="gymDesk">Gym Front Desk Associate</option>
+                  <option value="hotelDesk">Hotel Front Desk Agent</option>
+                  <option value="shiftLead">Shift Lead in Training</option>
+                  <option value="stocking">Stocking or Inventory Associate</option>
+                  <option value="fastFood">Fast Food Crew Member</option>
+                  <option value="lineCook">Line Cook</option>
+                  <option value="dishwasher">Dishwasher</option>
+                  <option value="busser">Busser or Runner</option>
+                  <option value="securityGuard">Security Guard</option>
+                  <option value="parkingAttendant">Parking Attendant</option>
+                  <option value="usher">Usher or Event Staff</option>
+                  <option value="ticketing">Ticketing or Box Office Associate</option>
+                  <option value="libraryAssistant">Library Assistant</option>
+                  <option value="teacherAide">Teacher Aide</option>
+                  <option value="campCounselor">Camp Counselor</option>
+                  <option value="petCare">Pet Care or Kennel Assistant</option>
+                  <option value="landscaping">Landscaping Crew Member</option>
+                  <option value="maintenance">Maintenance Helper</option>
+                  <option value="carWash">Car Wash Attendant</option>
+                  <option value="autoLube">Oil Change or Tire Shop Assistant</option>
+                  <option value="apprentice">Trade Apprentice Helper</option>
+                  <option value="medicalReception">Medical Receptionist</option>
+                  <option value="pharmacyTech">Pharmacy Technician Trainee</option>
+                  <option value="dentalAssistant">Dental Assistant Trainee</option>
+                  <option value="labAssistant">Lab Assistant</option>
+                  <option value="dataEntry">Data Entry Clerk</option>
+                  <option value="mailroom">Mailroom or Package Room Clerk</option>
+                  <option value="dispatcher">Dispatcher Trainee</option>
+                  <option value="rideshare">Rideshare or Courier Driver</option>
+                  <option value="beautyAssistant">Salon or Beauty Assistant</option>
+                  <option value="customJob">Any job - type your own below</option>
+                </select>
+                <label class="custom-job-field" for="customJobTrainingTitle">
+                  Job not listed
+                  <input
+                    id="customJobTrainingTitle"
+                    type="text"
+                    list="jobExamples"
+                    placeholder="Type any job: lifeguard, florist, tutor, mover, apprentice..."
+                  />
+                </label>
+                <datalist id="jobExamples">
+                  <option value="Lifeguard"></option>
+                  <option value="Tutor"></option>
+                  <option value="Mover"></option>
+                  <option value="Florist Assistant"></option>
+                  <option value="Bakery Assistant"></option>
+                  <option value="Farmers Market Vendor"></option>
+                  <option value="Photo Assistant"></option>
+                  <option value="Stagehand"></option>
+                  <option value="Museum Attendant"></option>
+                  <option value="Church Office Assistant"></option>
+                  <option value="Apartment Leasing Assistant"></option>
+                  <option value="Tire Shop Assistant"></option>
+                </datalist>
+                <div class="workforce-principles">
+                  <span>Show up early</span>
+                  <span>Learn the system</span>
+                  <span>Make customers feel safe</span>
+                  <span>Ask for feedback</span>
+                  <span>Track your wins</span>
+                </div>
+              </div>
+
+              <div class="workforce-result" id="workforceResult" aria-live="polite">
+                <span>Training plan</span>
+                <strong>Sales Associate</strong>
+                <p>Learn the product, greet every customer clearly, ask useful questions, and close with confidence.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel about-university-panel" id="about-university" data-portal-view-panel="about">
+            <div class="about-university-heading">
+              <div>
+                <p class="eyebrow">Institution and leadership</p>
+                <h3>About University of FlowState</h3>
+                <p>
+                  University of FlowState is an independent online learning environment designed around the whole student.
+                  It brings career direction, practical job preparation, language learning, creative practice, life skills,
+                  multimedia instruction, and portfolio development into one personalized portal.
+                </p>
+                <p class="university-motto">
+                  <span>University motto</span>
+                  <strong>Knowledge is power.</strong>
+                </p>
+              </div>
+              <img src="./flowstate-university-logo.svg" alt="University of FlowState crest" />
+            </div>
+
+            <div class="institution-facts" aria-label="University profile">
+              <div>
+                <span>Format</span>
+                <strong>Online and self-paced</strong>
+                <p>Students can build a weekly rhythm around their capacity while keeping a structured six-month pathway.</p>
+              </div>
+              <div>
+                <span>Programs</span>
+                <strong>Career, job, language, and elective study</strong>
+                <p>A career is optional. Students may also choose job training, a language, several electives, or an elective-only plan.</p>
+              </div>
+              <div>
+                <span>Teaching</span>
+                <strong>Multimedia and project-based</strong>
+                <p>Lessons combine English-captioned career videos, audio, photographs, diagrams, written context, practice, and projects.</p>
+              </div>
+              <div>
+                <span>Evidence</span>
+                <strong>Portfolio-centered completion</strong>
+                <p>Progress comes from completed lessons and tasks, with projects, reflections, training records, and career-ready proof.</p>
+              </div>
+            </div>
+
+            <div class="about-program-details">
+              <section>
+                <span>Our mission</span>
+                <strong>Turn curiosity into a realistic path and visible skill</strong>
+                <p>
+                  The university helps students understand what holds their attention, compare possible futures, choose without
+                  being forced into a path, practice useful skills, and create evidence they can explain to an employer, client,
+                  school, collaborator, or community.
+                </p>
+              </section>
+              <section>
+                <span>What students can study</span>
+                <strong>A broad catalog without unrelated course overlap</strong>
+                <p>
+                  The catalog covers more than 170 career pathways, more than 240 practical job-training roles, more than
+                  30 languages, and more than 200 electives. Subjects range from painting, photography, voice acting, and drama
+                  to science, technology, business, wellness, home economics, woodshop, civic life, and practical making.
+                </p>
+              </section>
+              <section>
+                <span>How personalization works</span>
+                <strong>Your active choices control the portal</strong>
+                <p>
+                  Selecting or switching a career rebuilds the course titles, lesson plan, six-month timeline, projects,
+                  readiness requirements, and career media around that path. Languages remain broad while adding a professional
+                  strand, and each selected elective keeps its own course and completion record.
+                </p>
+              </section>
+              <section>
+                <span>How learning adapts</span>
+                <strong>Study and retention methods follow the learner</strong>
+                <p>
+                  A learning assessment identifies visual, auditory, reading and writing, hands-on, or balanced preferences.
+                  Courses then emphasize fitting media, explanations, practice, retrieval, repetition, and review intervals
+                  without limiting students to a single learning method.
+                </p>
+              </section>
+            </div>
+
+            <div class="about-leadership">
+              <div class="leadership-introduction">
+                <span>University leadership</span>
+                <strong>Academic vision and student guidance</strong>
+                <p>
+                  Leadership is divided between the university's academic mission and the student's individual decision process.
+                  The dean defines the educational model; Student Guidance helps each learner use it thoughtfully.
+                </p>
+              </div>
+              <div class="leadership-directory">
+                <section>
+                  <span>Founding Dean</span>
+                  <strong>Aries Greyson</strong>
+                  <p>
+                    Dean Greyson oversees the whole-student academic vision, applied learning standards, program structure,
+                    portfolio expectations, and the connection between FlowState planning and University of FlowState study.
+                  </p>
+                </section>
+                <section>
+                  <span>Student Guidance Advisor</span>
+                  <strong>Raini Smith</strong>
+                  <p>
+                    Raini leads guided inquiries for career discovery, path changes, work preferences, learning support,
+                    language and elective planning, job training, and course-progress questions.
+                  </p>
+                </section>
+              </div>
+              <blockquote>
+                <p>
+                  Education should help you recognize your gifts, practice them with discipline, and build a life that feels
+                  like your own. Our work begins with the student, then shapes the program around what they are ready to become.
+                </p>
+                <footer><strong>Aries Greyson</strong><span>Founding Dean</span></footer>
+              </blockquote>
+            </div>
+
+            <div class="about-standards">
+              <section>
+                <span>Student standard</span>
+                <strong>Honest progress</strong>
+                <p>Completion begins at zero and increases only when the student marks real course work complete.</p>
+              </section>
+              <section>
+                <span>Career standard</span>
+                <strong>Relevant preparation</strong>
+                <p>Plans, projects, multimedia, and readiness measures follow the selected path and update when that path changes.</p>
+              </section>
+              <section>
+                <span>Learning standard</span>
+                <strong>Accessible context</strong>
+                <p>Multimedia is paired with readable instructions, practice steps, source credit, and English captions where provided.</p>
+              </section>
+            </div>
+
+            <aside class="institutional-standing" aria-label="Institutional standing">
+              <span>Institutional standing</span>
+              <strong>Independent educational platform</strong>
+              <p>
+                University of FlowState is not represented as an accredited or degree-granting college and does not award
+                government-recognized degrees, professional licenses, or transferable college credit. Its plans, progress
+                records, portfolio projects, and completion documents are personal learning and career-preparation tools.
+                Students should independently verify employer, licensing, certification, and college-entry requirements.
+              </p>
+            </aside>
+          </article>
+
+          <article class="panel academic-only career-only" id="roadmap" data-portal-view-panel="career">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Career services</p>
+                <h3>Job-ready checklist</h3>
+              </div>
+              <span class="pill">Graduation gate</span>
+            </div>
+            <div class="folder-list">
+              <span>01_Portfolio_Projects</span>
+              <span>02_Career_Practice_Labs</span>
+              <span>03_Career_Case_Studies</span>
+              <span>04_Resume_GitHub_LinkedIn</span>
+              <span>05_Interview_Practice</span>
+            </div>
+            <div class="roadmap">
+              <div><strong>Portfolio</strong><span>3 finished career-specific projects or training records with clear visuals and explanations</span></div>
+              <div><strong>Tools</strong><span>Selected-career tools, workplace scenarios, quality standards, and beginner skill evidence</span></div>
+              <div><strong>Career package</strong><span>Resume bullets, GitHub cleanup, LinkedIn summary, and project stories</span></div>
+              <div><strong>Interview readiness</strong><span>Mock explanations for metrics, tradeoffs, recommendations, and project decisions</span></div>
+              <div><strong>Applications</strong><span>Weekly target list, tracker, and tailored applications, apprenticeships, clients, or training opportunities</span></div>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
